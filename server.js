@@ -7,26 +7,22 @@ const port = 3000;
 app.use(cors()); 
 app.use(express.json()); 
 
-// Nosso "Banco de Dados" em memória
+// Substitua sua lista de frutas por esta:
 let frutas = [
-    { id: 1, titulo: "Morango", preco: 12.90, emoji: "🍓", descricao: "Bandeja 250g" },
-    { id: 2, titulo: "Banana Nanica", preco: 6.50, emoji: "🍌", descricao: "Dúzia selecionada" },
-    { id: 3, titulo: "Manga Palmer", preco: 5.00, emoji: "🥭", descricao: "Unidade madura" }
+    { id: 1, titulo: "Morango", preco: 12.90, imagem: "morango.jpg", descricao: "Bandeja 250g" },
+    { id: 2, titulo: "Banana Nanica", preco: 6.50, imagem: "BananaNanica.jpg", descricao: "Dúzia selecionada" },
+    { id: 3, titulo: "Manga Palmer", preco: 5.00, imagem: "mangaPalmer.jpg", descricao: "Unidade madura" },
+    { id: 4, titulo: "Uva sem Semente", preco: 15.00, imagem: "uva.jpg", descricao: "Cacho 500g" },
+    { id: 5, titulo: "Abacaxi Pérola", preco: 8.90, imagem: "abacaxi.jpg", descricao: "Unidade grande" },
+    { id: 6, titulo: "Maçã Gala", preco: 9.00, imagem: "maca.jpg", descricao: "Pacote 1kg" },
+    { id: 7, titulo: "Melancia", preco: 18.00, imagem: "melancia.jpg", descricao: "Unidade inteira" },
+    { id: 8, titulo: "Kiwi Importado", preco: 14.50, imagem: "kiwi.jpg", descricao: "Caixa 300g" }
 ];
 
 // --- ROTA DE BUSCA E LISTAGEM (GET) ---
 // No Postman: GET http://localhost:3000/frutas
 // Para buscar: GET http://localhost:3000/frutas?nome=banana
 app.get('/frutas', (req, res) => {
-    const termoBusca = req.query.nome;
-    
-    if (termoBusca) {
-        const filtradas = frutas.filter(f => 
-            f.titulo.toLowerCase().includes(termoBusca.toLowerCase())
-        );
-        return res.json(filtradas);
-    }
-    
     res.json(frutas);
 });
 

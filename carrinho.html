@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Carrinho - Frutaria Domareski</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">🍎 Frutaria <span>Domareski</span></div>
+        <nav><a href="index.html">Voltar às Compras</a></nav>
+    </header>
+
+    <main id="vitrine">
+        <div class="titulo-busca"><h2>Seu Carrinho</h2></div>
+        
+        <div id="lista-carrinho" style="max-width: 800px; margin: 0 auto;">
+            </div>
+
+        <div id="total-carrinho" style="text-align: center; margin-top: 30px; font-size: 1.5rem; font-weight: bold;">
+            Total: R$ 0,00
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="btn-principal" onclick="finalizarCompra()">Finalizar Compra</button>
+            <button onclick="limparCarrinho()" style="background: none; border: none; color: red; cursor: pointer;">Limpar Carrinho</button>
+        </div>
+    </main>
+
+    <script src="carrinho.js"></script>
+</body>
+</html>

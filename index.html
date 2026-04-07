@@ -8,14 +8,18 @@
 </head>
 <body>
 
-    <header>
-        <div class="logo">🍎 Frutaria <span>Domareski</span></div>
-        <nav>
-            <a href="#">Início</a>
-            <a href="#">Produtos</a>
-            <a href="#">Login</a>
-        </nav>
-    </header>
+   <header>
+    <div class="logo">🍎 Frutaria <span>Domareski</span></div>
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Produtos</a>
+        <a href="login.html">Login</a>    
+        <a href="carrinho.html" class="link-carrinho">
+            <span class="icone-carrinho">🛒</span>
+            <span id="contador-carrinho" class="contador-carrinho" style="display: none;">0</span>
+        </a>
+    </nav>
+</header>
 
     <section class="hero">
         <h1>Frutas Selecionadas <br> Direto do Produtor</h1>
@@ -24,10 +28,7 @@
     </section>
 
     <div class="titulo-busca">
-    <h2>Nossas Frutas</h2>
-    <div class="campo-busca">
-        <input type="text" id="input-busca" placeholder="O que você procura?">
-        <button id="btn-busca">🔍</button>
+    <h2>Nossas Frutas Frescas</h2>
     </div>
 </div>
 
@@ -66,8 +67,39 @@
                 <button class="btn-comprar">Adicionar</button>
             </div>
 
+            <div class="card-fruta">
+                <img src="imagens/abacaxi.jpg" alt="Abacaxi Pérola" class="img-fruta">
+                <h3>Abacaxi Pérola</h3>
+                <p>Unidade grande</p>
+                <span class="preco">R$ 8,90</span>
+                <button class="btn-comprar">Adicionar</button>
+            </div>
+
+            <div class="card-fruta">
+                <img src="imagens/maca.jpg" alt="Maçã Gala" class="img-fruta">
+                <h3>Maçã Gala</h3>
+                <p>Pacote 1kg</p>
+                <span class="preco">R$ 9,00</span>
+                <button class="btn-comprar">Adicionar</button>
+            </div>
+
+            <div class="card-fruta">
+                <img src="imagens/melancia.jpg" alt="Uva sem Semente caixo" class="img-fruta">
+                <h3>Melãncia</h3>
+                <p>Unidade inteira</p>
+                <span class="preco">R$ 18,00</span>
+                <button class="btn-comprar">Adicionar</button>
+            </div>
+
+            <div class="card-fruta">
+                <img src="imagens/kiwi.jpg" alt="Kiwi importado" class="img-fruta">
+                <h3>Kiwi importado</h3>
+                <p>Caixa 300g</p>
+                <span class="preco">R$ 14,50</span>
+                <button class="btn-comprar">Adicionar</button>
+            </div>
         </div>
 </main>
-
+<script src="script.js"></script>
 </body>
 </html>
