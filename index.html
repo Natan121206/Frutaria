@@ -3,103 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frutaria Frescor da Terra</title>
+    <title>Login - Frutaria Domareski</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para a tela de login */
+        .body-login {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #27ae60, #2d5a27);
+        }
+        .container-login {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .container-login h2 { color: #2d5a27; margin-bottom: 20px; }
+        .input-group { margin-bottom: 15px; text-align: left; }
+        .input-group label { display: block; margin-bottom: 5px; color: #666; }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-login:hover { background-color: #219150; }
+        #mensagem-erro { color: #e74c3c; margin-top: 15px; font-size: 0.9rem; display: none; }
+    </style>
 </head>
-<body>
+<body class="body-login">
 
-   <header>
-    <div class="logo">🍎 Frutaria <span>Domareski</span></div>
-    <nav>
-        <a href="#">Início</a>
-        <a href="#">Produtos</a>
-        <a href="login.html">Login</a>    
-        <a href="carrinho.html" class="link-carrinho">
-            <span class="icone-carrinho">🛒</span>
-            <span id="contador-carrinho" class="contador-carrinho" style="display: none;">0</span>
-        </a>
-    </nav>
-</header>
-
-    <section class="hero">
-        <h1>Frutas Selecionadas <br> Direto do Produtor</h1>
-        <p>Entregamos saúde e sabor na sua casa todos os dias.</p>
-        <button class="btn-principal">Ver Ofertas</button>
-    </section>
-
-    <div class="titulo-busca">
-    <h2>Nossas Frutas Frescas</h2>
-    </div>
-</div>
-
-<main id="vitrine">
-    <div class="container-frutas">
+    <div class="container-login">
+        <div class="logo" style="margin-bottom: 20px;">🍎 Frutaria <span>Domareski</span></div>
+        <h2>Bem-vindo</h2>
         
-        <div class="card-fruta">
-            <img src="imagens/morango.jpg" alt="Morango" class="img-fruta">
-            <h3>Morango Especial</h3>
-            <p>Bandeja 250g</p>
-            <span class="preco">R$ 12,90</span>
-            <button class="btn-comprar">Adicionar</button>
-        </div>
-
-        <div class="card-fruta">
-            <img src="imagens/BananaNanica.jpg" alt="Banana" class="img-fruta">
-            <h3>Banana Nanica</h3>
-            <p>Dúzia selecionada</p>
-            <span class="preco">R$ 6,50</span>
-            <button class="btn-comprar">Adicionar</button>
-        </div>
-
-         <div class="card-fruta">
-                <img src="imagens/mangaPalmer.jpg" alt="Manga Palmer selecionada" class="img-fruta">
-                <h3>Manga Palmer</h3>
-                <p>Unidade madura</p>
-                <span class="preco">R$ 5,00</span>
-                <button class="btn-comprar">Adicionar</button>
+        <form id="form-login">
+            <div class="input-group">
+                <label>E-mail</label>
+                <input type="email" id="email" placeholder="exemplo@email.com" required>
             </div>
-
-            <div class="card-fruta">
-                <img src="imagens/uva.jpg" alt="Uva sem Semente caixo" class="img-fruta">
-                <h3>Uva sem Semente</h3>
-                <p>Cacho 500g</p>
-                <span class="preco">R$ 15,00</span>
-                <button class="btn-comprar">Adicionar</button>
+            <div class="input-group">
+                <label>Senha</label>
+                <input type="password" id="senha" placeholder="Sua senha" required>
             </div>
+            <button type="submit" class="btn-login">Entrar</button>
+            <p id="mensagem-erro">E-mail ou senha incorretos!</p>
+        </form>
+    </div>
 
-            <div class="card-fruta">
-                <img src="imagens/abacaxi.jpg" alt="Abacaxi Pérola" class="img-fruta">
-                <h3>Abacaxi Pérola</h3>
-                <p>Unidade grande</p>
-                <span class="preco">R$ 8,90</span>
-                <button class="btn-comprar">Adicionar</button>
-            </div>
-
-            <div class="card-fruta">
-                <img src="imagens/maca.jpg" alt="Maçã Gala" class="img-fruta">
-                <h3>Maçã Gala</h3>
-                <p>Pacote 1kg</p>
-                <span class="preco">R$ 9,00</span>
-                <button class="btn-comprar">Adicionar</button>
-            </div>
-
-            <div class="card-fruta">
-                <img src="imagens/melancia.jpg" alt="Uva sem Semente caixo" class="img-fruta">
-                <h3>Melãncia</h3>
-                <p>Unidade inteira</p>
-                <span class="preco">R$ 18,00</span>
-                <button class="btn-comprar">Adicionar</button>
-            </div>
-
-            <div class="card-fruta">
-                <img src="imagens/kiwi.jpg" alt="Kiwi importado" class="img-fruta">
-                <h3>Kiwi importado</h3>
-                <p>Caixa 300g</p>
-                <span class="preco">R$ 14,50</span>
-                <button class="btn-comprar">Adicionar</button>
-            </div>
-        </div>
-</main>
-<script src="script.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>

@@ -43,7 +43,7 @@ function limparCarrinho() {
 function finalizarCompra() {
     alert("Pedido realizado com sucesso! Em breve você receberá suas frutas.");
     limparCarrinho();
-    window.location.href = "index.html";
+    window.location.href = "vitrine.html";
 }
 
 // Inicia a tela

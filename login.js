@@ -19,7 +19,7 @@ form.addEventListener('submit', (e) => {
         localStorage.setItem('logado', 'true');
         
         // Redireciona para a sua página inicial
-        window.location.href = "index.html"; 
+        window.location.href = "vitrine.html" 
     } else {
         // Falha! Mostra a mensagem de erro
         erro.style.display = 'block';
