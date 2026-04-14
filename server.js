@@ -12,7 +12,7 @@ app.use(express.json());
 
 // Remova o "+srv" e deixe apenas "mongodb://"
 // O host é apenas o endereço do seu cluster, sem o "cluster0." inicial se necessário
-const mongoURI = "mongodb://Dev:Senha123@cluster0-ee2o5zl.mongodb.net:27017/frutaria_db?authSource=admin&retryWrites=true&w=majority";
+const mongoURI = "mongodb+srv://Dev:SenhaSenha@cluster0.ee2o5zl.mongodb.net/?appName=Cluster0";
 
 mongoose.connect(mongoURI, {
     // Estas opções não são mais necessárias e causam erro
