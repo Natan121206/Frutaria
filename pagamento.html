@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagamento - Frutaria Domareski</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container-pagamento {
+            max-width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .metodo-pagamento {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .metodo-pagamento:hover { border-color: #27ae60; background: #f9fbf9; }
+        .input-pagamento {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .resumo-total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #27ae60;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🍎 Frutaria <span>Domareski</span></div>
+    </header>
+
+    <div class="container-pagamento">
+        <h2>Finalizar Pedido</h2>
+        <hr><br>
+        <div id="valor-final" class="resumo-total">Total a pagar: R$ 0,00</div>
+
+        <form id="form-pagamento">
+            <label>Nome no Cartão</label>
+            <input type="text" class="input-pagamento" placeholder="Nome Completo" required>
+            
+            <label>Número do Cartão</label>
+            <input type="text" class="input-pagamento" placeholder="0000 0000 0000 0000" required>
+            
+            <div style="display: flex; gap: 10px;">
+                <input type="text" class="input-pagamento" placeholder="Validade (MM/AA)" required>
+                <input type="text" class="input-pagamento" placeholder="CVV" required>
+            </div>
+
+            <button type="submit" class="btn-principal" style="width: 100%;">Confirmar Pagamento</button>
+        </form>
+        
+        <button onclick="window.location.href='carrinho.html'" style="width: 100%; background: none; border: none; color: #666; margin-top: 15px; cursor: pointer;">Voltar ao carrinho</button>
+    </div>
+
+    <script>
+        // Pega o valor total que salvamos no carrinho
+        const total = localStorage.getItem('valorTotal') || "0,00";
+        document.getElementById('valor-final').innerText = `Total a pagar: R$ ${total}`;
+
+        document.getElementById('form-pagamento').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert("Pagamento processado com sucesso! 🎉\nObrigado por comprar na Frutaria Domareski.");
+            localStorage.removeItem('carrinho'); // Limpa o carrinho após a compra
+            window.location.href = "index.html"; // Volta para a tela principal (ou de login)
+        });
+    </script>
+</body>
+</html>

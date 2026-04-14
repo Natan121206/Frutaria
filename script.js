@@ -1,6 +1,18 @@
 const containerFrutas = document.querySelector('.container-frutas');
 const contadorElemento = document.getElementById('contador-carrinho');
 
+const nivel = localStorage.getItem('nivelAcesso');
+const nav = document.querySelector('nav');
+
+if (nivel === 'admin') {
+    // Cria um link extra no menu se for admin
+    const linkAdmin = document.createElement('a');
+    linkAdmin.href = "admin.html";
+    linkAdmin.innerText = "⚙️ Painel Admin";
+    linkAdmin.style.color = "#f39c12"; // Cor de destaque
+    nav.appendChild(linkAdmin);
+}
+
 // --- NOVA FUNÇÃO: Atualiza o número no contador vermelho ---
 function atualizarContador() {
     // 1. Lê o carrinho do localStorage
@@ -17,16 +29,21 @@ function atualizarContador() {
     }
 }
 
-// --- FUNÇÃO DE ADICIONAR (REVISADA) ---
 function adicionarAoCarrinho(fruta) {
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
     carrinho.push(fruta);
     localStorage.setItem('carrinho', JSON.stringify(carrinho));
 
-    // --- ATUALIZA O CONTADOR LOGO APÓS ADICIONAR ---
+    // --- CHAME AQUI ---
     atualizarContador(); 
 
-    alert(`${fruta.titulo} adicionado ao carrinho! 🛒`);
+    // --- Lógica do Aviso (Toast) ---
+    const toast = document.getElementById('toast');
+    toast.style.display = 'block'; 
+    
+    setTimeout(() => {
+        toast.style.display = 'none';
+    }, 3000);
 }
 
 async function carregarFrutas() {

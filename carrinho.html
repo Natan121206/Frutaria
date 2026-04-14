@@ -16,6 +16,16 @@
         
         <div id="lista-carrinho" style="max-width: 800px; margin: 0 auto;">
             </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 10px; margin: 20px auto; max-width: 800px; border: 1px solid #eee;">
+    <label for="cep" style="display: block; margin-bottom: 10px; font-weight: bold;">Calcular Entrega (CEP):</label>
+    <div style="display: flex; gap: 10px;">
+        <input type="text" id="cep-input" placeholder="00000-000" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; flex: 1;">
+        <button onclick="calcularFrete()" class="btn-principal" style="padding: 10px 20px; margin-top: 0;">Calcular</button>
+    </div>
+    <p id="msg-frete" style="margin-top: 10px; color: #27ae60; font-weight: 500; display: none;"></p>
+</div>
+
 
         <div id="total-carrinho" style="text-align: center; margin-top: 30px; font-size: 1.5rem; font-weight: bold;">
             Total: R$ 0,00
