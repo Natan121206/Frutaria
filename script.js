@@ -1,6 +1,6 @@
 const containerFrutas = document.querySelector('.container-frutas');
 const contadorElemento = document.getElementById('contador-carrinho');
-
+const API_URL = 'https://frutaria-api.onrender.com';
 const nivel = localStorage.getItem('nivelAcesso');
 const nav = document.querySelector('nav');
 
@@ -29,26 +29,10 @@ function atualizarContador() {
     }
 }
 
-function adicionarAoCarrinho(fruta) {
-    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    carrinho.push(fruta);
-    localStorage.setItem('carrinho', JSON.stringify(carrinho));
-
-    // --- CHAME AQUI ---
-    atualizarContador(); 
-
-    // --- Lógica do Aviso (Toast) ---
-    const toast = document.getElementById('toast');
-    toast.style.display = 'block'; 
-    
-    setTimeout(() => {
-        toast.style.display = 'none';
-    }, 3000);
-}
 
 async function carregarFrutas() {
     try {
-        const resposta = await fetch('http://localhost:3000/frutas');
+        const resposta = await fetch(`${API_URL}/frutas`);
         const dados = await resposta.json();
 
         containerFrutas.innerHTML = "";

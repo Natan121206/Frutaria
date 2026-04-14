@@ -7,42 +7,17 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Middlewares
+// Remova todos os app.use(cors()) anteriores e deixe apenas um:
 app.use(cors()); 
-app.use(express.json()); 
+app.use(express.json());
 
-// Remova o "+srv" e deixe apenas "mongodb://"
-// O host é apenas o endereço do seu cluster, sem o "cluster0." inicial se necessário
-const mongoURI = "mongodb+srv://Dev:SenhaSenha@cluster0.ee2o5zl.mongodb.net/?appName=Cluster0";
-
-mongoose.connect(mongoURI, {
-    // Estas opções não são mais necessárias e causam erro
-    // useNewUrlParser: true, 
-    // useUnifiedTopology: true,
-    
-    // Mantemos apenas as configurações de segurança de rede/SSL
-    tls: true,
-    tlsAllowInvalidCertificates: true,
-    tlsAllowInvalidHostnames: true
-})
-.then(() => console.log("✅ CONECTADO COM SUCESSO!"))
+// Conexão única e limpa
+mongoose.connect(process.env.MONGO_URI)
+.then(() => console.log("✅ CONECTADO AO MONGODB ATLAS!"))
 .catch((err) => console.error("❌ ERRO NO BANCO:", err));
 
-// 3. Conexão robusta
-mongoose.connect(mongoURI, {
-    family: 4 // Mantido para ajudar na resolução de IP local
-})
-.then(() => console.log("✅ Conectado ao banco de dados!"))
-.catch((err) => console.error("❌ Erro no banco:", err));
+const mongoURI = "mongodb+srv://Dev:SenhaSenha@cluster0.ee2o5zl.mongodb.net/?appName=Cluster0";
 
-// Schema e Model
-const FrutaSchema = new mongoose.Schema({
-    titulo: String,
-    preco: Number,
-    imagem: String,
-    descricao: String
-});
-
-const Fruta = mongoose.model('Fruta', FrutaSchema);
 
 // Rotas
 app.get('/frutas', async (req, res) => {
