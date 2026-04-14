@@ -1,6 +1,6 @@
 const containerFrutas = document.querySelector('.container-frutas');
 const contadorElemento = document.getElementById('contador-carrinho');
-const API_URL = 'https://frutaria-api.onrender.com';
+const API_URL = 'https://frutaria-api.onrender.com/frutas';
 const nivel = localStorage.getItem('nivelAcesso');
 const nav = document.querySelector('nav');
 
